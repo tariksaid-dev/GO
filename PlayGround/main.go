@@ -117,7 +117,6 @@ func main() {
 	fmt.Println("Fin del bucle 2")
 
 	// Defer
-
 	defer fmt.Println("Segundo") // Al añadir esta kw, el código se ejecuta en último lugar
 	fmt.Println("Primero")
 }
