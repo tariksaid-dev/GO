@@ -9,6 +9,22 @@ import (
 // Devuelve 0 si no se le asigna valor
 var ext int
 
+// Las funciones no se pueden declarar en el main
+func PrimeraFunc() {
+	fmt.Println("Primera función")
+}
+
+func FuncWithParams(numero int) {
+	fmt.Println(numero + 2)
+}
+
+// Structs para oop
+type coche struct {
+	Marca string
+	Año int
+	Color string
+}
+
 func main() {
 	fmt.Println("Hi mom")
 
@@ -117,6 +133,57 @@ func main() {
 	fmt.Println("Fin del bucle 2")
 
 	// Defer
-	defer fmt.Println("Segundo") // Al añadir esta kw, el código se ejecuta en último lugar
-	fmt.Println("Primero")
+	defer fmt.Println("Defer printeandose en último lugar") // Al añadir esta kw, el código se ejecuta en último lugar
+
+
+	// Arrays
+
+	var Array [4]string
+	Array[2] = "Pos 2"
+	fmt.Println(Array[2])
+
+	array1:=[]int{1, 2, 3, 4, 5}
+	array2:=[]int{6, 7, 8, 9, 10}
+	array3:=[]int{11, 12, 13, 14, 15}
+
+	multidimensional:=[][]int{array1, array2, array3}
+
+	fmt.Println(multidimensional)
+	fmt.Println(len(array1), cap(multidimensional))
+
+	array1 = append(array1, 222)
+	fmt.Println(array1)
+
+
+	// Funciones
+
+	// Las funciones no se pueden declarar en el main. Funciones encima de ella 👆
+	PrimeraFunc()
+	FuncWithParams(4) 
+
+	// OOP
+
+	// Las clases se pueden declarar en otros archivos o en el mismo encima del main 👆
+
+	coche1 := coche{"Toyota", 2012, "Negro"}
+	coche2 := coche{"Honda", 2015, "Blanco"}
+
+	fmt.Println(coche1)
+	fmt.Println(coche2.Color)
+
+	// Para importar otros paquetes a nuestro proyecto se puede hacer con 'go mod init <nombrepaquete>
+	// Es posible agregar paquetes de repositorios
+	// Encapsulación pública = variables en mayúsculas, opuesto privada
+
+	// Structs anónimos
+
+	Persona := struct {
+		Nombre string
+		Apellido string
+	} {
+		"Tarik", 
+		"Said",
+	}
+
+	fmt.Println(Persona.Nombre)
 }
